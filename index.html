@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Invitation</title>
+  <style>
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body, html {
+    height: 100%;
+    font-family: 'Georgia', serif;
+    background-color: #7b1f1f;
+    color: #ffd700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .home, .page {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .show {
+    display: flex;
+  }
+
+  .invite-text {
+    font-size: 2.2rem;
+    margin-bottom: 0.4em;
+    color: #ffd700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .invite-text:nth-child(1) {
+    animation: slideInLeft 1.2s ease forwards;
+  }
+
+  .invite-text:nth-child(2) {
+    font-size: 1.8rem;
+    font-family: cursive;
+    margin-bottom: 0.2em;
+    animation: fadeIn 1.5s ease forwards;
+  }
+
+  .invite-text:nth-child(3) {
+    animation: slideInRight 1.2s ease forwards;
+  }
+
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  img {
+    width: 90%;
+    max-width: 500px;
+    height: 95%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(239, 218, 98, 0.5);
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #ffd700;
+    color: #7b1f1f;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 600px) {
+    .invite-text {
+      font-size: 1.5rem;
+    }
+    .invite-text:nth-child(2) {
+      font-size: 1.2rem;
+    }
+  }
+
+
+</style>
+
+</head>
+<body>
+  <div class="home show" id="home">
+    <div class="invite-text">Anju Kumari</div>
+    <div class="invite-text">Weds</div>
+    <div class="invite-text">Vittu Kumar</div>
+    <div class="buttons">
+      <button onclick="goToPage(1)">View Invitation</button>
+    </div>
+  </div>
+
+  <div class="page" id="page1">
+    <img src="weCard1.png" alt="Wedding Card Page 1"/>
+    <div class="buttons">
+      <button onclick="goHome()">Home</button>
+      <button onclick="goToPage(2)">अगला पेज➡️</button>
+    </div>
+  </div>
+
+  <div class="page" id="page2">
+    <img src="weCard2.png" alt="Wedding Card Page 2"/>
+    <div class="buttons">
+      <button onclick="goHome()">Home</button>
+      <button onclick="goToPage(1)">⬅️पिछला पेज</button>
+    </div>
+  </div>
+
+  <script>
+    function goToPage(page) {
+      document.querySelectorAll('.home, .page').forEach(el => el.classList.remove('show'));
+      document.getElementById(`page${page}`).classList.add('show');
+    }
+
+    function goHome() {
+      document.querySelectorAll('.home, .page').forEach(el => el.classList.remove('show'));
+      document.getElementById('home').classList.add('show');
+    }
+  </script>
+</body>
+</html>
