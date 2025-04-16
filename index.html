@@ -23,6 +23,26 @@
     overflow: hidden;
   }
 
+  .credit {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #f7f6f1;
+  font-family: 'Georgia', serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  z-index: 100;
+  margin-bottom: 5px;
+}
+
+.credit a {
+  color: #f3f2ef;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
   .home, .page {
     display: none;
     flex-direction: column;
@@ -163,6 +183,10 @@
     </div>
   </div>
 
+  <div class="credit">
+    Developed by <a href="https://www.instagram.com/invitationwebs2015?igsh=bWUzY3FvMnU1MmNw" target="_blank">@invitationwebs2015</a>
+  </div>
+  
   <script>
     function goToPage(page) {
       document.querySelectorAll('.home, .page').forEach(el => el.classList.remove('show'));
